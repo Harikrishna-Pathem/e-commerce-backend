@@ -20,7 +20,10 @@ app.set("trust proxy", 1);   // <--- ADD THIS LINE
 
 //Then this is the 1st place every request comes here
 // Middleware setup
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"]
+}));
 //This line will read every request body
 app.use(express.json());
 // This line prints the status of the request
